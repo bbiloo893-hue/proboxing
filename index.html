@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRO BOXING SHAHRIXON</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Telegram WebApp SDK -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(rgba(11, 14, 20, 0.85), rgba(11, 14, 20, 0.92)), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP0yDOeaT4_80QNgQvgR3_xmq7-N-ahE-ymnEPmOTRcA&s=10');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #ff0000;
+            overflow-x: hidden;
+        }
+        .brand-font {
+            font-family: 'Anton', sans-serif;
+            letter-spacing: 1px;
+        }
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 15px rgba(0, 255, 13, 0.4); }
+            50% { box-shadow: 0 0 30px rgba(239, 68, 68, 0.8); }
+        }
+        .glow-box {
+            animation: pulseGlow 3s infinite;
+        }
+        .glass-card {
+            background: rgba(26, 31, 44, 0.82);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="min-h-screen pb-12">
+
+    <!-- Top Header Banner -->
+    <header class="relative w-full h-72 sm:h-80 overflow-hidden shadow-2xl">
+        <img src="image_021d55.png" alt="O'tkirbek Sport Jamoasi" class="w-full h-full object-cover transform scale-105 transition duration-700 hover:scale-100">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0b0e14] via-transparent to-transparent"></div>
+        
+        <div class="absolute bottom-4 left-4 right-4 flex flex-col items-center text-center">
+            <h1 class="text-4xl sm:text-5xl brand-font text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-orange-400 to-yellow-400 drop-shadow-md">
+                Pro boxing shahrixon
+            </h1>
+            <p class="text-gray-300 text-sm mt-1 font-medium">Kuch, Matonat va G‘alaba sari birgalikda!</p>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-md mx-auto px-4 mt-6 space-y-6">
+
+        <!-- TAB 1: BOOKING & MAIN INTERFACE -->
+        <div id="tab-content-booking" class="space-y-6 animate-fade">
+            <!-- Contact Phone Widget -->
+            <a href="tel:+998944489009" class="glass-card rounded-2xl p-4 glow-box flex items-center justify-between hover:border-red-500 transition">
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 rounded-xl bg-red-600/20 border border-red-500/50 flex items-center justify-center text-red-500 text-xl">
+                        <i class="fa-solid fa-phone-volume animate-pulse"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xs text-gray-400 uppercase font-bold tracking-wider">Bog'lanish uchun</h3>
+                        <p class="text-lg font-extrabold text-white">+998 (94) 448-90-09</p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <span class="bg-red-600 text-white text-xs font-bold px-3 py-1.5 rounded-xl shadow">Qo'ng'iroq</span>
+                </div>
+            </a>
+
+            <!-- Location Widget -->
+            <a href="https://maps.google.com/maps?q=40.708440,72.044014&ll=40.708440,72.044014&z=16" target="_blank" class="glass-card rounded-2xl p-4 flex items-center justify-between hover:border-red-500 transition duration-300 group">
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 rounded-xl bg-red-600/20 border border-red-500/50 flex items-center justify-center text-red-500 text-xl group-hover:scale-110 transition">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xs text-gray-400 uppercase font-bold tracking-wider">Zal Manzili</h3>
+                        <p class="text-sm font-extrabold text-white">Shahrixon (Xaritada ko'rish)</p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <span class="bg-red-600 text-white text-xs font-bold px-3 py-1.5 rounded-xl shadow">Xarita</span>
+                </div>
+            </a>
+
+            <!-- Training Schedule Section -->
+            <section>
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-xl font-extrabold flex items-center gap-2 text-white">
+                        <i class="fa-solid fa-dumbbell text-red-500"></i> Kunlik Vaqtlar
+                    </h2>
+                    <span class="text-xs text-gray-400">3 mahal mashg'ulot</span>
+                </div>
+
+                <div class="grid grid-cols-1 gap-3">
+                    <!-- Slot 1 -->
+                    <div onclick="selectTime('16:30')" id="slot-16:30" class="time-slot glass-card rounded-2xl p-4 flex items-center justify-between cursor-pointer transition-all duration-300 hover:border-red-500 hover:scale-[1.02]">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-red-600 to-orange-600 flex items-center justify-center text-white text-lg font-bold shadow-lg">
+                                <i class="fa-solid fa-sun"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-white">1-Smena</h4>
+                                <p class="text-xs text-gray-400">Boks va Jismoniy Tayyorgarlik</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-xl font-extrabold text-red-400 brand-font">16:30</span>
+                            <div class="text-[10px] text-gray-400 mt-0.5">Tanlash</div>
+                        </div>
+                    </div>
+
+                    <!-- Slot 2 -->
+                    <div onclick="selectTime('18:00')" id="slot-18:00" class="time-slot glass-card rounded-2xl p-4 flex items-center justify-between cursor-pointer transition-all duration-300 hover:border-red-500 hover:scale-[1.02]">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-600 to-amber-600 flex items-center justify-center text-white text-lg font-bold shadow-lg">
+                                <i class="fa-solid fa-cloud-sun"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-white">2-Smena</h4>
+                                <p class="text-xs text-gray-400">Intensiv sparring va texnika</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-xl font-extrabold text-orange-400 brand-font">18:00</span>
+                            <div class="text-[10px] text-gray-400 mt-0.5">Tanlash</div>
+                        </div>
+                    </div>
+
+                    <!-- Slot 3 -->
+                    <div onclick="selectTime('19:30')" id="slot-19:30" class="time-slot glass-card rounded-2xl p-4 flex items-center justify-between cursor-pointer transition-all duration-300 hover:border-red-500 hover:scale-[1.02]">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-600 to-indigo-600 flex items-center justify-center text-white text-lg font-bold shadow-lg">
+                                <i class="fa-solid fa-moon"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-white">3-Smena</h4>
+                                <p class="text-xs text-gray-400">Kechki professional guruh</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-xl font-extrabold text-indigo-400 brand-font">19:30</span>
+                            <div class="text-[10px] text-gray-400 mt-0.5">Tanlash</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Booking Form Section -->
+            <section class="glass-card rounded-2xl p-5 shadow-xl">
+                <h3 class="text-lg font-bold mb-3 flex items-center gap-2 text-white">
+                    <i class="fa-solid fa-user-check text-green-500"></i> Mashg'ulotga yozilish
+                </h3>
+                <form id="booking-form" onsubmit="submitBooking(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 mb-1 uppercase">Ism va Familiyangiz</label>
+                        <input type="text" id="user-name" required placeholder="Masalan: Jasurbek" class="w-full bg-[#131722]/90 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-red-500 transition">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 mb-1 uppercase">Telefon Raqamingiz</label>
+                        <input type="tel" id="user-phone" required placeholder="+998 90 123 45 67" class="w-full bg-[#131722]/90 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-red-500 transition">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 mb-1 uppercase">Tanlangan Vaqt (Smena)</label>
+                        <input type="text" id="selected-time-input" readonly placeholder="Yuqoridan smenani tanlang..." class="w-full bg-[#131722]/90 border border-gray-700 rounded-xl px-4 py-3 text-red-400 font-bold focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 mb-1 uppercase">Yoshingizni kiriting</label>
+                        <input type="tel" id="user-age" required placeholder="6-16" class="w-full bg-[#131722]/90 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-red-500 transition">
+                    </div>
+                    <button type="submit" class="w-full bg-gradient-to-r from-red-600 to-orange-600 text-white font-extrabold py-3.5 rounded-xl shadow-lg hover:from-red-500 hover:to-orange-500 transition transform active:scale-95">
+                        RO'YXATDAN O'TISH <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </button>
+                </form>
+            </section>
+
+            <!-- Instagram Link Section -->
+            <section>
+                <a href="https://instagram.com/otkirbek_iron" target="_blank" class="glass-card rounded-2xl p-4 flex items-center justify-between group hover:border-pink-500 transition duration-300">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-yellow-500 via-pink-600 to-purple-700 flex items-center justify-center text-white text-xl shadow-lg group-hover:rotate-12 transition duration-300">
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-base font-bold text-white">Instagram Sahifamiz</h4>
+                            <p class="text-xs text-pink-400 font-semibold">@otkirbek_iron</p>
+                        </div>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-gray-300 group-hover:bg-pink-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-chevron-right text-xs"></i>
+                    </div>
+                </a>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center px-4">
+        <div class="glass-card rounded-3xl p-6 max-w-sm w-full text-center space-y-4 border border-red-500/30">
+            <div class="w-16 h-16 bg-green-500/20 text-green-500 border border-green-500/50 rounded-full flex items-center justify-center mx-auto text-2xl">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h3 class="text-2xl font-extrabold text-white">Muvaffaqiyatli!</h3>
+            <p id="modal-desc" class="text-sm text-gray-300">Siz muvaffaqiyatli ro'yxatdan o'tdingiz.</p>
+            <button onclick="closeModal()" class="w-full bg-red-600 hover:bg-red-500 text-white font-bold py-3 rounded-xl transition">
+                OK
+            </button>
+        </div>
+    </div>
+
+    <!-- Script Logic -->
+    <script>
+        let tg = window.Telegram.WebApp;
+        if (tg) {
+            tg.expand();
+        }
+
+        let chosenTime = '';
+
+        function selectTime(time) {
+            chosenTime = time;
+            document.getElementById('selected-time-input').value = time + " (Smena)";
+            
+            document.querySelectorAll('.time-slot').forEach(el => {
+                el.classList.remove('border-red-500', 'bg-red-950/30');
+            });
+            let activeCard = document.getElementById('slot-' + time);
+            if (activeCard) {
+                activeCard.classList.add('border-red-500', 'bg-red-950/30');
+            }
+        }
+
+        async function submitBooking(event) {
+            event.preventDefault();
+            let name = document.getElementById('user-name').value;
+            let phone = document.getElementById('user-phone').value;
+            let age = document.getElementById('user-age').value;
+
+            if (!chosenTime) {
+                alert("Iltimos, avval mashg'ulot vaqtini (smenani) tanlang!");
+                return;
+            }
+
+            let botToken = "8342601850:AAF1j4Owbtafoa3CWqeM_zdC-hJ-rdym3V4";
+            let adminId = "985304452";
+            
+            let message = `🥊 <b>Yangi Sportchi Ro'yxatdan O'tdi!</b>\n\n` +
+                          `👤 <b>Ismi:</b> ${name}\n` +
+                          `📞 <b>Telefon raqami:</b> ${phone}\n` +
+                          `🎂 <b>Yoshi:</b> ${age}\n` +
+                          `⏰ <b>Smena vaqti:</b> ${chosenTime} smenasi`;
+
+            let submitBtn = event.target.querySelector('button[type="submit"]');
+            let originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = `YUBORILMOQDA... <i class="fa-solid fa-spinner fa-spin ml-2"></i>`;
+            submitBtn.disabled = true;
+
+            try {
+                let response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        chat_id: adminId,
+                        text: message,
+                        parse_mode: 'HTML'
+                    })
+                });
+
+                if (response.ok) {
+                    document.getElementById('modal-desc').innerHTML = `Hurmatli <b>${name}</b>, siz <b>${chosenTime}</b> smenasiga muvaffaqiyatli yozildingiz! Ma'lumot botingizga yuborildi.`;
+                    document.getElementById('success-modal').classList.remove('hidden');
+                } else {
+                    alert("Xatolik yuborishda! Internetni tekshiring.");
+                }
+            } catch (error) {
+                console.error("Xato:", error);
+                alert("Xatolik yuz berdi.");
+            } finally {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('success-modal').classList.add('hidden');
+            document.getElementById('booking-form').reset();
+            chosenTime = '';
+            document.querySelectorAll('.time-slot').forEach(el => {
+                el.classList.remove('border-red-500', 'bg-red-950/30');
+            });
+        }
+    </script>
+</body>
+</html>
