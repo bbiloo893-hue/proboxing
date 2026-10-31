@@ -47,25 +47,19 @@
         }
     </style>
 </head>
-<body class="min-h-screen pb-12">
-
-    <!-- Top Header Banner -->
-    <header class="relative w-full h-72 sm:h-80 overflow-hidden shadow-2xl">
-        <img src="image_021d55.png" alt="O'tkirbek Sport Jamoasi" class="w-full h-full object-cover transform scale-105 transition duration-700 hover:scale-100">
-        <div class="absolute inset-0 bg-gradient-to-t from-[#0b0e14] via-transparent to-transparent"></div>
-        
-        <div class="absolute bottom-4 left-4 right-4 flex flex-col items-center text-center">
-            <h1 class="text-4xl sm:text-5xl brand-font text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-orange-400 to-yellow-400 drop-shadow-md">
-                Pro boxing shahrixon
-            </h1>
-            <p class="text-gray-300 text-sm mt-1 font-medium">Kuch, Matonat va G‘alaba sari birgalikda!</p>
-        </div>
-    </header>
+<body class="min-h-screen pb-12 pt-6">
 
     <!-- Main Container -->
-    <main class="max-w-md mx-auto px-4 mt-6 space-y-6">
+    <main class="max-w-md mx-auto px-4 space-y-6">
 
-        <!-- TAB 1: BOOKING & MAIN INTERFACE -->
+        <!-- Title Section (Alternative to header if needed) -->
+        <div class="text-center space-y-1 mb-2">
+            <h1 class="text-3xl sm:text-4xl brand-font text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-orange-400 to-yellow-400 drop-shadow-md">
+                PRO BOXING SHAHRIXON
+            </h1>
+            <p class="text-gray-400 text-xs font-medium">Kuch, Matonat va G‘alaba sari birgalikda!</p>
+        </div>
+
         <div id="tab-content-booking" class="space-y-6 animate-fade">
             <!-- Contact Phone Widget -->
             <a href="tel:+998944489009" class="glass-card rounded-2xl p-4 glow-box flex items-center justify-between hover:border-red-500 transition">
@@ -103,9 +97,9 @@
             <section>
                 <div class="flex items-center justify-between mb-4">
                     <h2 class="text-xl font-extrabold flex items-center gap-2 text-white">
-                        <i class="fa-solid fa-dumbbell text-red-500"></i> Kunlik Vaqtlar
+                        <i class="fa-solid fa-dumbbell text-red-500"></i> Mashg'ulot Vaqtlari
                     </h2>
-                    <span class="text-xs text-gray-400">3 mahal mashg'ulot</span>
+                    <span class="text-xs text-gray-400">Smenani tanlang</span>
                 </div>
 
                 <div class="grid grid-cols-1 gap-3">
@@ -142,23 +136,6 @@
                             <div class="text-[10px] text-gray-400 mt-0.5">Tanlash</div>
                         </div>
                     </div>
-
-                    <!-- Slot 3 -->
-                    <div onclick="selectTime('19:30')" id="slot-19:30" class="time-slot glass-card rounded-2xl p-4 flex items-center justify-between cursor-pointer transition-all duration-300 hover:border-red-500 hover:scale-[1.02]">
-                        <div class="flex items-center space-x-4">
-                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-600 to-indigo-600 flex items-center justify-center text-white text-lg font-bold shadow-lg">
-                                <i class="fa-solid fa-moon"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-bold text-white">3-Smena</h4>
-                                <p class="text-xs text-gray-400">Kechki professional guruh</p>
-                            </div>
-                        </div>
-                        <div class="text-right">
-                            <span class="text-xl font-extrabold text-indigo-400 brand-font">19:30</span>
-                            <div class="text-[10px] text-gray-400 mt-0.5">Tanlash</div>
-                        </div>
-                    </div>
                 </div>
             </section>
 
@@ -184,6 +161,17 @@
                         <label class="block text-xs font-semibold text-gray-400 mb-1 uppercase">Yoshingizni kiriting</label>
                         <input type="tel" id="user-age" required placeholder="6-16" class="w-full bg-[#131722]/90 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-red-500 transition">
                     </div>
+                    
+                    <!-- Tarifni tanlash -->
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 mb-1 uppercase">Tarifni Tanlang</label>
+                        <select id="user-tariff" class="w-full bg-[#131722]/90 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-red-500 transition">
+                            <option value="1 Oylik Abunement">1 Oylik Abunement</option>
+                            <option value="3 Oylik Abunement (Chegirma)">3 Oylik Abunement (Chegirma)</option>
+                            <option value="Individual mashg'ulot">Individual mashg'ulot</option>
+                        </select>
+                    </div>
+
                     <button type="submit" class="w-full bg-gradient-to-r from-red-600 to-orange-600 text-white font-extrabold py-3.5 rounded-xl shadow-lg hover:from-red-500 hover:to-orange-500 transition transform active:scale-95">
                         RO'YXATDAN O'TISH <i class="fa-solid fa-arrow-right ml-2"></i>
                     </button>
@@ -227,7 +215,7 @@
 
     <!-- Script Logic -->
     <script>
-        let tg = window.Telegram.WebApp;
+        let tg = window.Telegram?.WebApp;
         if (tg) {
             tg.expand();
         }
@@ -252,20 +240,22 @@
             let name = document.getElementById('user-name').value;
             let phone = document.getElementById('user-phone').value;
             let age = document.getElementById('user-age').value;
+            let tariff = document.getElementById('user-tariff').value;
 
             if (!chosenTime) {
                 alert("Iltimos, avval mashg'ulot vaqtini (smenani) tanlang!");
                 return;
             }
 
-            let botToken = "8342601850:AAF1j4Owbtafoa3CWqeM_zdC-hJ-rdym3V4";
+            let botToken = "8342601850:AAGvfZ-5F7uQ7NFdhekhjjc8LP5_jOM2zb8";
             let adminId = "985304452";
             
             let message = `🥊 <b>Yangi Sportchi Ro'yxatdan O'tdi!</b>\n\n` +
                           `👤 <b>Ismi:</b> ${name}\n` +
                           `📞 <b>Telefon raqami:</b> ${phone}\n` +
                           `🎂 <b>Yoshi:</b> ${age}\n` +
-                          `⏰ <b>Smena vaqti:</b> ${chosenTime} smenasi`;
+                          `⏰ <b>Smena vaqti:</b> ${chosenTime} smenasi\n` +
+                          `💳 <b>Tarif:</b> ${tariff}`;
 
             let submitBtn = event.target.querySelector('button[type="submit"]');
             let originalText = submitBtn.innerHTML;
@@ -285,15 +275,18 @@
                     })
                 });
 
-                if (response.ok) {
-                    document.getElementById('modal-desc').innerHTML = `Hurmatli <b>${name}</b>, siz <b>${chosenTime}</b> smenasiga muvaffaqiyatli yozildingiz! Ma'lumot botingizga yuborildi.`;
+                let data = await response.json();
+
+                if (response.ok && data.ok) {
+                    document.getElementById('modal-desc').innerHTML = `Hurmatli <b>${name}</b>, siz <b>${chosenTime}</b> smenasiga (${tariff}) muvaffaqiyatli yozildingiz! Ma'lumot botingizga yuborildi.`;
                     document.getElementById('success-modal').classList.remove('hidden');
                 } else {
-                    alert("Xatolik yuborishda! Internetni tekshiring.");
+                    alert("Xatolik yuborishda! Bot tokeni yoki Admin ID noto'g'ri bo'lishi mumkin.");
+                    console.error("Telegram API Error:", data);
                 }
             } catch (error) {
                 console.error("Xato:", error);
-                alert("Xatolik yuz berdi.");
+                alert("Tarmoqda xatolik yuz berdi. Internetni tekshiring.");
             } finally {
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
